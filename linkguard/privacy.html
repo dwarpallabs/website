@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinkGuard Privacy Policy</title>
+  <meta name="description" content="How LinkGuard handles your data: it does not log, store or send the links you open.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header><a class="mark" href="/">Dwarpal <span>Labs</span></a></header>
+
+  <h1>LinkGuard Privacy Policy</h1>
+  <p class="muted">Effective 15 October 2026 · Draft for the first release</p>
+
+  <p class="lede">Short version: LinkGuard does not log, store or send the links you open. It has no accounts, no ads, no analytics and no trackers.</p>
+
+  <h2>What LinkGuard does</h2>
+  <p>When you tap a link, Android sends it to LinkGuard. LinkGuard checks the link on your phone, then opens it in the browser you chose, or shows a warning if the link looks like a scam. You can always open the link anyway.</p>
+
+  <h2>What we do not collect</h2>
+  <ul>
+    <li>We do not keep a history of the links you open, on your phone or anywhere else.</li>
+    <li>We do not send the links you open to Dwarpal Labs. We do not run a server that receives them.</li>
+    <li>No account, name, phone number, email address, contacts or location.</li>
+    <li>No advertising ID, no analytics, no crash-reporting service and no third-party trackers.</li>
+  </ul>
+
+  <h2>When LinkGuard uses the internet</h2>
+  <p>Most checks run entirely on your phone. LinkGuard connects to the internet only in these cases:</p>
+  <ul>
+    <li><strong>Short links.</strong> For links such as bit.ly or t.co, LinkGuard asks the short-link service where the link leads, so it can check the real destination. That service would see the same request if you opened the link without LinkGuard.</li>
+    <li><strong>Scam list updates.</strong> About once a day, on Wi-Fi, LinkGuard downloads an updated list of known scam websites from our public GitHub releases. The request contains no information about you or your links.</li>
+    <li><strong>Reputation checks</strong> (Google Play version only). LinkGuard may ask Google Safe Browsing whether a website is known to be dangerous. It sends only a short, partial fingerprint (hash prefix) of the address, never the address itself, so Google cannot tell which site you are visiting.</li>
+  </ul>
+
+  <h2>Settings</h2>
+  <p>Your settings, such as which browser to open links in and which checks are turned on, are stored only on your phone. Uninstalling LinkGuard deletes them.</p>
+
+  <h2>Reporting a link</h2>
+  <p>If you choose <em>Report a link</em>, LinkGuard opens a pre-filled issue on GitHub in your browser. Nothing is sent unless you submit it yourself. GitHub issues are public, and GitHub's own privacy policy applies to them.</p>
+
+  <h2>Children</h2>
+  <p>LinkGuard collects no personal data from anyone, including children.</p>
+
+  <h2>Open source</h2>
+  <p>LinkGuard's source code is public under the Apache-2.0 licence, so anyone can check that it does what this policy says: <a href="https://github.com/dwarpallabs/linkguard">github.com/dwarpallabs/linkguard</a>.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, we will update this page and its effective date. Any change that collects more data will be announced in the app's release notes before it ships.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: open an issue at <a href="https://github.com/dwarpallabs/linkguard/issues">github.com/dwarpallabs/linkguard/issues</a>.</p>
+
+  <footer>© 2026 Dwarpal Labs · <a href="/">Home</a></footer>
+</main>
+</body>
+</html>
