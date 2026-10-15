@@ -25,12 +25,14 @@
     <li>We do not send the links you open to Dwarpal Labs. We do not run a server that receives them.</li>
     <li>No account, name, phone number, email address, contacts or location.</li>
     <li>No advertising ID, no analytics, no crash-reporting service and no third-party trackers.</li>
+    <li>Android itself may record the addresses of links you open in its own system logs. LinkGuard cannot control that.</li>
   </ul>
 
   <h2>When LinkGuard uses the internet</h2>
   <p>Most checks run entirely on your phone. LinkGuard connects to the internet only in these cases:</p>
   <ul>
     <li><strong>Short links.</strong> For links such as bit.ly or t.co, LinkGuard asks the short-link service where the link leads, so it can check the real destination. That service would see the same request if you opened the link without LinkGuard.</li>
+    <li><strong>Website age.</strong> To spot brand-new scam sites, LinkGuard may ask the official registry for a website&#39;s domain when it was registered. Only the domain name is sent, for example <code>example.com</code>, never the page address, and always over an encrypted connection. The answer is kept only until LinkGuard closes.</li>
     <li><strong>Scam list updates.</strong> About once a day, on Wi-Fi, LinkGuard downloads an updated list of known scam websites from our public GitHub releases. The request contains no information about you or your links.</li>
     <li><strong>Reputation checks</strong> (Google Play version only). LinkGuard may ask Google Safe Browsing whether a website is known to be dangerous. It sends only a short, partial fingerprint (hash prefix) of the address, never the address itself, so Google cannot tell which site you are visiting.</li>
   </ul>
