@@ -12,7 +12,7 @@
   <header><a class="mark" href="/">Dwarpal <span>Labs</span></a></header>
 
   <h1>LinkGuard Privacy Policy</h1>
-  <p class="muted">Effective 15 October 2026 · Draft for the first release</p>
+  <p class="muted">Effective with LinkGuard 0.2.0</p>
 
   <p class="lede">Short version: LinkGuard does not log, store or send the links you open. It has no accounts, no ads, no analytics and no trackers.</p>
 
@@ -22,7 +22,7 @@
   <h2>What we do not collect</h2>
   <ul>
     <li>We do not keep a history of the links you open, on your phone or anywhere else.</li>
-    <li>We do not send the links you open to Dwarpal Labs. We do not run a server that receives them.</li>
+    <li>We do not send the links you open to Dwarpal Labs. Our server only receives the short fingerprints described below, and links you choose to report.</li>
     <li>No account, name, phone number, email address, contacts or location.</li>
     <li>No advertising ID, no analytics, no crash-reporting service and no third-party trackers.</li>
     <li>Android itself may record the addresses of links you open in its own system logs. LinkGuard cannot control that.</li>
@@ -33,15 +33,15 @@
   <ul>
     <li><strong>Short links.</strong> For links such as bit.ly or t.co, LinkGuard asks the short-link service where the link leads, so it can check the real destination. That service would see the same request if you opened the link without LinkGuard.</li>
     <li><strong>Website age.</strong> To spot brand-new scam sites, LinkGuard may ask the official registry for a website&#39;s domain when it was registered. Only the domain name is sent, for example <code>example.com</code>, never the page address, and always over an encrypted connection. The answer is kept only until LinkGuard closes.</li>
-    <li><strong>Scam list updates.</strong> About once a day, on Wi-Fi, LinkGuard downloads an updated list of known scam websites from our public GitHub releases. The request contains no information about you or your links.</li>
-    <li><strong>Reputation checks</strong> (Google Play version only). LinkGuard may ask Google Safe Browsing whether a website is known to be dangerous. It sends only a short, partial fingerprint (hash prefix) of the address, never the address itself, so Google cannot tell which site you are visiting.</li>
+    <li><strong>Known scam websites.</strong> For a website that isn&#39;t on LinkGuard&#39;s list of known-safe sites, LinkGuard asks Dwarpal Labs&#39; server about it. It sends only the first 4 bytes of a scrambled fingerprint (SHA-256 hash) of the website&#39;s name, for example <code>3f9a1c2e</code>. Many different websites share each fingerprint, so we cannot tell which website you opened, and the server keeps no record of these requests. The answer can be &ldquo;known scam&rdquo;, or &ldquo;reported as a scam by N LinkGuard users this week&rdquo;.</li>
+    <li><strong>Safe-website list.</strong> About once a day, LinkGuard downloads Dwarpal Labs&#39; list of known-safe websites, as fingerprints signed by Dwarpal Labs. The request contains no information about you or your links.</li>
   </ul>
 
   <h2>Settings</h2>
   <p>Your settings, such as which browser to open links in and which checks are turned on, are stored only on your phone. Uninstalling LinkGuard deletes them.</p>
 
   <h2>Reporting a link</h2>
-  <p>If you choose <em>Report a link</em>, LinkGuard opens a pre-filled issue on GitHub in your browser. Nothing is sent unless you submit it yourself. GitHub issues are public, and GitHub's own privacy policy applies to them.</p>
+  <p>If you tap <em>Send report</em>, LinkGuard sends the link, any note you wrote, the website&#39;s name and an anonymous code to Dwarpal Labs over an encrypted connection. The code is different for every website, so your reports can&#39;t be linked together or traced back to you; it only lets us count each phone once per website. When several different people report the same website within a week, other LinkGuard users see a soft warning automatically. Reports are never published and are deleted after 30 days.</p>
 
   <h2>Children</h2>
   <p>LinkGuard collects no personal data from anyone, including children.</p>
