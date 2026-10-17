@@ -1,3 +1,19 @@
+/* Ol Chiki (Santali) and Meetei Mayek (Manipuri) are missing from many computers. These are tiny
+   self-hosted subsets of Noto Sans (SIL OFL, fonts/OFL.txt) holding only the letters this site uses;
+   unicode-range means a browser downloads one only when that script is on the page. */
+@font-face {
+  font-family: "LG Ol Chiki";
+  src: url("/fonts/noto-sans-olchiki-subset.woff2") format("woff2");
+  unicode-range: U+1C50-1C7F;
+  font-display: swap;
+}
+@font-face {
+  font-family: "LG Meetei Mayek";
+  src: url("/fonts/noto-sans-meeteimayek-subset.woff2") format("woff2");
+  unicode-range: U+ABC0-ABFF, U+AAE0-AAFF;
+  font-display: swap;
+}
+
 /* Dwarpal Labs design system (linkguard/docs/design-system.md): one brand colour, one ink, three
    status colours; system fonts with Noto first; same type scale as the app (sp → px). */
 :root {
@@ -15,7 +31,7 @@
   --danger: #b91c1c;
 
   --font: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Noto Sans Devanagari", "Noto Sans Tamil", sans-serif;
+    "Noto Sans Devanagari", "Noto Sans Tamil", "LG Ol Chiki", "LG Meetei Mayek", sans-serif;
   --text-hero: 2.5rem;
   --text-display: 1.75rem;
   --text-title: 1.5rem;
@@ -171,6 +187,18 @@ a:focus-visible, .button:focus-visible {
 .steps li { display: flex; gap: var(--space-lg); margin-bottom: var(--space-xl); }
 .steps svg { flex: none; width: 32px; height: 32px; margin-top: 2px; color: var(--brand); }
 .steps p { margin: 0; color: var(--ink-muted); }
+
+/* Your language: each name in its own script; tall line height so Indic vowel signs never clip. */
+.langs {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--space-sm) var(--space-lg);
+  line-height: 1.7;
+}
+.langs .muted { font-size: var(--text-caption); }
 
 footer {
   margin-top: var(--space-xxxl);
