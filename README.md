@@ -7,4 +7,5 @@ Looks and wording follow the shared design system in [`linkguard/docs/design-sys
 - `index.html` — home page
 - `linkguard/privacy.html` — LinkGuard privacy policy (linked from the Play Store listing)
 - `_headers` — security headers applied by Cloudflare Pages
+- `style.css` is cached by browsers for up to 4 hours, so the pages link it as `/style.css?v=N`. Bump `N` in every page whenever `style.css` changes, or visitors get the new HTML with the old styles.
 - `favicon.svg`, `favicon.ico` (16/32/48 px), `apple-touch-icon.png` (180 px) — the LinkGuard shield, drawn from the app's launcher icon geometry (same code as `docs/play/make_assets.py` in the linkguard repo)
