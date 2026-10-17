@@ -1,50 +1,181 @@
+/* Dwarpal Labs design system (linkguard/docs/design-system.md): one brand colour, one ink, three
+   status colours; system fonts with Noto first; same type scale as the app (sp → px). */
 :root {
-  --bg: #fbfaf7;
-  --fg: #1d1c1a;
-  --muted: #5f5c55;
-  --accent: #9a3412;
-  --rule: #e4e0d8;
+  --brand: #1e3a8a;
+  --on-brand: #ffffff;
+  --brand-tint: #eef2ff;
+  --ink: #111827;
+  --ink-muted: #4b5563;
+  --outline: #6b7280;
+  --outline-soft: #e5e7eb;
+  --bg: #ffffff;
+  --surface: #f3f4f6;
+  --safe: #15803d;
+  --caution: #b45309;
+  --danger: #b91c1c;
+
+  --font: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Noto Sans Devanagari", "Noto Sans Tamil", sans-serif;
+  --text-hero: 2.5rem;
+  --text-display: 1.75rem;
+  --text-title: 1.5rem;
+  --text-heading: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-label: 1.125rem;
+  --text-caption: 0.875rem;
+
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-xxxl: 48px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --touch-min: 56px;
+  --measure: 720px;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #161514;
-    --fg: #ece9e3;
-    --muted: #a5a097;
-    --accent: #fb923c;
-    --rule: #2e2c29;
+    --brand: #a5b4fc;
+    --on-brand: #0b1220;
+    --brand-tint: #2b3450;
+    --ink: #f3f4f6;
+    --ink-muted: #9ca3af;
+    --outline-soft: #1f2a40;
+    --bg: #0b1220;
+    --surface: #141c2f;
+    --safe: #4ade80;
+    --caution: #fbbf24;
+    --danger: #f87171;
   }
 }
+
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--fg);
-  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--text-body-lg);
+  line-height: 1.55;
+  letter-spacing: 0;
 }
-main { max-width: 40rem; margin: 0 auto; padding: 3rem 1rem 4rem; }
-header { margin-bottom: 2.5rem; }
-.mark { font-weight: 700; letter-spacing: 0.02em; color: var(--fg); text-decoration: none; }
-.mark span { color: var(--accent); }
-h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 0.75rem; }
-h2 { font-size: 1.2rem; margin: 2.25rem 0 0.5rem; }
-p, li { color: var(--fg); }
-.lede { font-size: 1.15rem; color: var(--muted); }
-.muted { color: var(--muted); font-size: 0.95rem; }
-a { color: var(--accent); }
-ul { padding-left: 1.25rem; }
-li { margin: 0.35rem 0; }
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-xxl) var(--space-lg) var(--space-xxxl);
+}
+@media (min-width: 600px) {
+  main { padding: var(--space-xxxl) var(--space-xl) 96px; }
+}
+
+/* Header: the LinkGuard shield and the parent wordmark. */
+header { margin-bottom: var(--space-xxxl); }
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-height: 48px;
+  color: var(--ink);
+  font-size: var(--text-heading);
+  font-weight: 600;
+  text-decoration: none;
+}
+.mark img { width: 32px; height: 32px; border-radius: 8px; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 0 0 var(--space-lg);
+}
+@media (min-width: 600px) {
+  h1 { font-size: var(--text-hero); }
+}
+h2 {
+  font-size: var(--text-title);
+  line-height: 1.4;
+  font-weight: 600;
+  margin: var(--space-xxxl) 0 var(--space-md);
+}
+h3 {
+  font-size: var(--text-heading);
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+h4 {
+  font-size: var(--text-body-lg);
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+p, li { margin: 0 0 var(--space-lg); }
+.lede { font-size: var(--text-body-lg); color: var(--ink-muted); }
+.muted { color: var(--ink-muted); font-size: var(--text-body); }
+ul { padding-left: var(--space-xl); }
+li { margin-bottom: var(--space-md); }
+code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.95em;
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 1px 6px;
+}
+
+/* Links are underlined, never colour-only. */
+a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+a:focus-visible, .button:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Product card. */
 .card {
-  border: 1px solid var(--rule);
-  border-radius: 10px;
-  padding: 1.25rem;
-  margin-top: 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-top: var(--space-xxxl);
 }
 .card h2 { margin-top: 0; }
+.tagline { font-size: var(--text-title); font-weight: 600; line-height: 1.4; margin-bottom: var(--space-md); }
+
+/* Buttons: same three variants and sizes as the app (§7.1). Labels wrap instead of shrinking. */
+.actions { display: flex; flex-direction: column; gap: var(--space-md); margin: var(--space-xl) 0 var(--space-sm); }
+@media (min-width: 600px) {
+  .actions { flex-direction: row; flex-wrap: wrap; }
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-min);
+  padding: 14px var(--space-xl);
+  border-radius: var(--radius-md);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+.button.primary { background: var(--brand); color: var(--on-brand); }
+.button.secondary { border: 1.5px solid var(--outline); color: var(--ink); }
+.actions + .muted { margin-top: 0; }
+
+/* How it works: icon + short title + one sentence. */
+.steps { list-style: none; padding: 0; margin: var(--space-xl) 0 0; }
+.steps li { display: flex; gap: var(--space-lg); margin-bottom: var(--space-xl); }
+.steps svg { flex: none; width: 32px; height: 32px; margin-top: 2px; color: var(--brand); }
+.steps p { margin: 0; color: var(--ink-muted); }
+
 footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--rule);
-  color: var(--muted);
-  font-size: 0.9rem;
+  margin-top: var(--space-xxxl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--outline-soft);
+  color: var(--ink-muted);
+  font-size: var(--text-caption);
 }
