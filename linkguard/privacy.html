@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LinkGuard Privacy Policy</title>
+  <title>LinkGuard privacy policy</title>
   <meta name="description" content="How LinkGuard handles your data: it does not log, store or send the links you open.">
   <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
@@ -19,13 +19,21 @@
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="stylesheet" href="/style.css?v=3">
+  <link rel="stylesheet" href="/style.css?v=4">
 </head>
 <body>
 <main>
-  <header><a class="mark" href="/"><img src="/favicon.svg" alt="" width="32" height="32">Dwarpal Labs</a></header>
+  <header>
+    <a class="mark" href="/linkguard/"><img src="/favicon.svg" alt="" width="32" height="32">LinkGuard</a>
+    <nav aria-label="LinkGuard">
+      <ul>
+        <li><a href="/linkguard/#how">How it works</a></li>
+        <li><a href="/linkguard/privacy">Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <h1>LinkGuard Privacy Policy</h1>
+  <h1>LinkGuard privacy policy</h1>
   <p class="muted">Effective with LinkGuard 0.2.0</p>
 
   <p class="lede">Short version: LinkGuard does not log, store or send the links you open. It has no accounts, no ads, no analytics and no trackers.</p>
@@ -46,30 +54,38 @@
   <p>Most checks run entirely on your phone. LinkGuard connects to the internet only in these cases:</p>
   <ul>
     <li><strong>Short links.</strong> For links such as bit.ly or t.co, LinkGuard asks the short-link service where the link leads, so it can check the real destination. That service would see the same request if you opened the link without LinkGuard.</li>
-    <li><strong>Website age.</strong> To spot brand-new scam sites, LinkGuard may ask the official registry for a website&#39;s domain when it was registered. Only the domain name is sent, for example <code>example.com</code>, never the page address, and always over an encrypted connection. The answer is kept only until LinkGuard closes.</li>
-    <li><strong>Known scam websites.</strong> For a website that isn&#39;t on LinkGuard&#39;s list of known-safe sites, LinkGuard asks Dwarpal Labs&#39; server about it. It sends only the first 4 bytes of a scrambled fingerprint (SHA-256 hash) of the website&#39;s name, for example <code>3f9a1c2e</code>. Many different websites share each fingerprint, so we cannot tell which website you opened, and the server keeps no record of these requests. The answer can be &ldquo;known scam&rdquo;, or &ldquo;reported as a scam by N LinkGuard users this week&rdquo;.</li>
-    <li><strong>Safe-website list.</strong> About once a day, LinkGuard downloads Dwarpal Labs&#39; list of known-safe websites, as fingerprints signed by Dwarpal Labs. The request contains no information about you or your links.</li>
+    <li><strong>Website age.</strong> To spot brand-new scam websites, LinkGuard may ask the official registry for a website’s domain when it was registered. Only the domain name is sent, for example <code>example.com</code>, never the page address, and always over an encrypted connection. The answer is kept only until LinkGuard closes.</li>
+    <li><strong>Known scam websites.</strong> For a website that isn’t on LinkGuard’s list of known-safe websites, LinkGuard asks Dwarpal Labs’ server about it. It sends only the first 4 bytes of a scrambled fingerprint (SHA-256 hash) of the website’s name, for example <code>3f9a1c2e</code>. Many different websites share each fingerprint, so we cannot tell which website you opened, and the server keeps no record of these requests. The answer can be “known scam”, or “reported as a scam by N LinkGuard users this week”.</li>
+    <li><strong>Safe-website list.</strong> About once a day, LinkGuard downloads Dwarpal Labs’ list of known-safe websites, as fingerprints signed by Dwarpal Labs. The request contains no information about you or your links.</li>
   </ul>
 
   <h2>Settings</h2>
   <p>Your settings, such as which browser to open links in and which checks are turned on, are stored only on your phone. Uninstalling LinkGuard deletes them.</p>
 
   <h2>Reporting a link</h2>
-  <p>If you tap <em>Send report</em>, LinkGuard sends the link, any note you wrote, the website&#39;s name and an anonymous code to Dwarpal Labs over an encrypted connection. The code is different for every website, so your reports can&#39;t be linked together or traced back to you; it only lets us count each phone once per website. When several different people report the same website within a week, other LinkGuard users see a soft warning automatically. Reports are never published and are deleted after 30 days.</p>
+  <p>If you tap <em>Send report</em>, LinkGuard sends the link, any note you wrote, the website’s name and an anonymous code to Dwarpal Labs over an encrypted connection. The code is different for every website, so your reports can’t be linked together or traced back to you; it only lets us count each phone once per website. When several different people report the same website within a week, other LinkGuard users see a soft warning automatically. Reports are never published and are deleted after 30 days.</p>
 
   <h2>Children</h2>
   <p>LinkGuard collects no personal data from anyone, including children.</p>
 
   <h2>Open source</h2>
-  <p>LinkGuard's source code is public under the Apache-2.0 licence, so anyone can check that it does what this policy says: <a href="https://github.com/dwarpallabs/linkguard">github.com/dwarpallabs/linkguard</a>.</p>
+  <p>LinkGuard’s source code is public under the Apache-2.0 licence, so anyone can check that it does what this policy says: <a href="https://github.com/dwarpallabs/linkguard">github.com/dwarpallabs/linkguard</a>.</p>
 
   <h2>Changes</h2>
-  <p>If this policy changes, we will update this page and its effective date. Any change that collects more data will be announced in the app's release notes before it ships.</p>
+  <p>If this policy changes, we will update this page and its effective date. Any change that collects more data will be announced in the app’s release notes before it ships.</p>
 
   <h2>Contact</h2>
   <p>Questions about privacy or LinkGuard: email <!--email_off--><a href="mailto:support@dwarpallabs.com">support@dwarpallabs.com</a><!--/email_off-->, or open an issue at <a href="https://github.com/dwarpallabs/linkguard/issues">github.com/dwarpallabs/linkguard/issues</a>.</p>
 
-  <footer>© 2026 Dwarpal Labs · <a href="/">Home</a></footer>
+  <footer>
+    <ul>
+      <li>LinkGuard · by <a href="/">Dwarpal Labs</a></li>
+      <li><a href="/linkguard/privacy">Privacy</a></li>
+      <li><a href="https://github.com/dwarpallabs/linkguard/blob/main/LICENSE">Licence: Apache-2.0</a></li>
+      <li><a href="https://github.com/dwarpallabs/linkguard">Source code</a></li>
+      <li><!--email_off--><a href="mailto:support@dwarpallabs.com">support@dwarpallabs.com</a><!--/email_off--></li>
+    </ul>
+  </footer>
 </main>
 </body>
 </html>

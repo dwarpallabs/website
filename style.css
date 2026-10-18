@@ -15,7 +15,7 @@
 }
 
 /* Same tokens as the LinkGuard app: one brand colour, one ink, three status colours; system fonts
-   with Noto first; same type scale as the app (sp → px). */
+   with Noto first; same type scale as the app (sp → px). Status colours mean link safety only. */
 :root {
   --brand: #1e3a8a;
   --on-brand: #ffffff;
@@ -27,8 +27,15 @@
   --bg: #ffffff;
   --surface: #f3f4f6;
   --safe: #15803d;
+  --safe-tint: #dcfce7;
+  --on-safe-tint: #166534;
   --caution: #b45309;
+  --caution-tint: #fef3c7;
+  --on-caution-tint: #92400e;
   --danger: #b91c1c;
+  --danger-tint: #fee2e2;
+  --on-danger-tint: #991b1b;
+  --pressed: rgb(17 24 39 / 0.12);
 
   --font: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto,
     "Noto Sans Devanagari", "Noto Sans Tamil", "LG Ol Chiki", "LG Meetei Mayek", sans-serif;
@@ -41,15 +48,20 @@
   --text-label: 1.125rem;
   --text-caption: 0.875rem;
 
+  --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 12px;
   --space-lg: 16px;
   --space-xl: 24px;
   --space-xxl: 32px;
   --space-xxxl: 48px;
+  --section: 48px;
+  --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
   --touch-min: 56px;
+  --touch-secondary: 48px;
   --measure: 720px;
 }
 @media (prefers-color-scheme: dark) {
@@ -59,13 +71,25 @@
     --brand-tint: #2b3450;
     --ink: #f3f4f6;
     --ink-muted: #9ca3af;
+    --outline: #9ca3af;
     --outline-soft: #1f2a40;
     --bg: #0b1220;
     --surface: #141c2f;
+    /* Dark tints are the status colour at 16 % over the surface, pre-mixed, as in the app. */
     --safe: #4ade80;
+    --safe-tint: #1d3b3c;
+    --on-safe-tint: #4ade80;
     --caution: #fbbf24;
+    --caution-tint: #39362d;
+    --on-caution-tint: #fbbf24;
     --danger: #f87171;
+    --danger-tint: #382a3a;
+    --on-danger-tint: #f87171;
+    --pressed: rgb(243 244 246 / 0.12);
   }
+}
+@media (min-width: 600px) {
+  :root { --section: 96px; }
 }
 
 * { box-sizing: border-box; }
@@ -82,25 +106,36 @@ body {
 main {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: var(--space-xxl) var(--space-lg) var(--space-xxxl);
+  padding: var(--space-xl) var(--space-lg) var(--space-xxxl);
 }
 @media (min-width: 600px) {
-  main { padding: var(--space-xxxl) var(--space-xl) 96px; }
+  main { padding: var(--space-xxl) var(--space-xl) var(--space-xxxl); }
 }
 
-/* Header: the LinkGuard shield and the parent wordmark. */
-header { margin-bottom: var(--space-xxxl); }
+/* Header: mark + wordmark at start, at most three links at end. */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm) var(--space-xl);
+  margin-bottom: var(--space-xxxl);
+}
 .mark {
   display: inline-flex;
   align-items: center;
   gap: var(--space-md);
-  min-height: 48px;
+  min-height: var(--touch-secondary);
   color: var(--ink);
   font-size: var(--text-heading);
   font-weight: 600;
   text-decoration: none;
 }
-.mark img { width: 32px; height: 32px; border-radius: 8px; }
+.mark img { width: 32px; height: 32px; border-radius: var(--radius-sm); }
+.mark small { font-size: var(--text-body); font-weight: 400; color: var(--ink-muted); }
+nav ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-xl); list-style: none; margin: 0; padding: 0; }
+nav li { margin: 0; }
+nav a { display: inline-flex; align-items: center; min-height: var(--touch-secondary); font-size: var(--text-body); }
 
 h1 {
   font-size: 2rem;
@@ -113,32 +148,31 @@ h1 {
 }
 h2 {
   font-size: var(--text-title);
-  line-height: 1.4;
+  line-height: 1.45;
   font-weight: 600;
-  margin: var(--space-xxxl) 0 var(--space-md);
+  margin: 0 0 var(--space-lg);
 }
+/* Long documents without sections (privacy policy): space before each heading. */
+main > h2 { margin-top: var(--space-xxxl); }
 h3 {
   font-size: var(--text-heading);
   line-height: 1.5;
   font-weight: 600;
-  margin: 0 0 4px;
-}
-h4 {
-  font-size: var(--text-body-lg);
-  line-height: 1.5;
-  font-weight: 600;
-  margin: 0 0 2px;
+  margin: 0 0 var(--space-xs);
 }
 p, li { margin: 0 0 var(--space-lg); }
+/* Two weights only (400 and 600) and no italics: Indic scripts have no true italic. */
+strong, b { font-weight: 600; }
+em, i { font-style: normal; font-weight: 600; }
 .lede { font-size: var(--text-body-lg); color: var(--ink-muted); }
 .muted { color: var(--ink-muted); font-size: var(--text-body); }
-ul { padding-left: var(--space-xl); }
+ul { padding-inline-start: var(--space-xl); }
 li { margin-bottom: var(--space-md); }
 code {
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.95em;
   background: var(--surface);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   padding: 1px 6px;
 }
 
@@ -150,43 +184,77 @@ a:focus-visible, .button:focus-visible {
   border-radius: 4px;
 }
 
-/* Product card. */
+/* Sections: white space is the main decoration (48 px on phones, 96 px from 600 px). */
+.section { margin-top: var(--section); }
+
+/* Card: surface colour instead of a shadow. */
 .card {
   background: var(--surface);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   padding: var(--space-xl);
-  margin-top: var(--space-xxxl);
 }
-.card h2 { margin-top: 0; }
-.tagline { font-size: var(--text-title); font-weight: 600; line-height: 1.4; margin-bottom: var(--space-md); }
+.card-head { display: flex; align-items: center; gap: var(--space-lg); margin-bottom: var(--space-lg); }
+.card-head img { width: 48px; height: 48px; border-radius: var(--radius-md); flex: none; }
+.card-head h2 { margin: 0; }
+.tagline { font-size: var(--text-title); font-weight: 600; line-height: 1.45; margin-bottom: var(--space-md); }
 
-/* Buttons: same three variants and sizes as the app (§7.1). Labels wrap instead of shrinking. */
+/* Buttons: same variants and sizes as the app. Stacked and full width, primary on top, never side by
+   side; labels wrap instead of shrinking. */
 .actions { display: flex; flex-direction: column; gap: var(--space-md); margin: var(--space-xl) 0 var(--space-sm); }
-@media (min-width: 600px) {
-  .actions { flex-direction: row; flex-wrap: wrap; }
-}
 .button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   min-height: var(--touch-min);
   padding: 14px var(--space-xl);
   border-radius: var(--radius-md);
   font-size: var(--text-label);
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.45;
   text-align: center;
   text-decoration: none;
 }
 .button.primary { background: var(--brand); color: var(--on-brand); }
 .button.secondary { border: 1.5px solid var(--outline); color: var(--ink); }
+.button:active { box-shadow: inset 0 0 0 999px var(--pressed); }
 .actions + .muted { margin-top: 0; }
+
+/* Hero screenshot: one phone screen, framed simply. */
+.screen {
+  display: block;
+  max-width: 320px;
+  margin: var(--space-xxl) 0 0;
+  padding: var(--space-md);
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+}
+.screen img { display: block; width: 100%; height: auto; border-radius: var(--radius-md); }
 
 /* How it works: icon + short title + one sentence. */
 .steps { list-style: none; padding: 0; margin: var(--space-xl) 0 0; }
 .steps li { display: flex; gap: var(--space-lg); margin-bottom: var(--space-xl); }
 .steps svg { flex: none; width: 32px; height: 32px; margin-top: 2px; color: var(--brand); }
 .steps p { margin: 0; color: var(--ink-muted); }
+
+/* What it warns about: the app's status badges. Each state has its own shape, so it reads in
+   greyscale; colour is never the only signal. */
+.states { list-style: none; padding: 0; margin: var(--space-xl) 0 0; }
+.states li { display: flex; gap: var(--space-lg); margin-bottom: var(--space-xl); }
+.badge { flex: none; width: 56px; height: 56px; }
+.badge.safe { color: var(--safe); --tint: var(--safe-tint); }
+.badge.caution { color: var(--caution); --tint: var(--caution-tint); }
+.badge.danger { color: var(--danger); --tint: var(--danger-tint); }
+.badge .tile, .badge .dot { fill: var(--tint); }
+.badge .shape { fill: currentColor; stroke: currentColor; stroke-width: 3; stroke-linejoin: round; }
+.badge .cut { fill: none; stroke: var(--tint); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+.states h3.safe { color: var(--on-safe-tint); }
+.states h3.caution { color: var(--on-caution-tint); }
+.states h3.danger { color: var(--on-danger-tint); }
+.states p { margin: 0; }
+
+/* Privacy in plain words. */
+.facts { padding-inline-start: var(--space-xl); }
 
 /* Your language: each name in its own script; tall line height so Indic vowel signs never clip. */
 .langs {
@@ -198,12 +266,15 @@ a:focus-visible, .button:focus-visible {
   gap: var(--space-sm) var(--space-lg);
   line-height: 1.7;
 }
-.langs .muted { font-size: var(--text-caption); }
+.langs li { margin: 0; }
 
 footer {
-  margin-top: var(--space-xxxl);
+  margin-top: var(--section);
   padding-top: var(--space-lg);
   border-top: 1px solid var(--outline-soft);
   color: var(--ink-muted);
   font-size: var(--text-caption);
 }
+footer ul { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-lg); list-style: none; margin: 0; padding: 0; }
+/* Every item is a 48 px row so plain text lines up with the links' tap areas. */
+footer li { display: flex; align-items: center; gap: 0.3em; min-height: var(--touch-secondary); margin: 0; }

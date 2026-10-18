@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinkGuard: check every link before it opens</title>
+  <meta name="description" content="Free, open-source Android app that checks WhatsApp, Telegram and SMS links for scams before they open. Warns in English and all 22 official languages of India. Never saves or sends your links.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dwarpal Labs">
+  <meta property="og:title" content="LinkGuard: check every link before it opens">
+  <meta property="og:description" content="Free, open-source Android app that checks WhatsApp and SMS links for scams before they open. Warns in English and all 22 official languages of India. Never logs your links.">
+  <meta property="og:url" content="https://dwarpallabs.com/linkguard/">
+  <meta property="og:image" content="https://dwarpallabs.com/og-linkguard.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LinkGuard shield logo. Checks WhatsApp and SMS links for scams before they open. Free, open source, 23 languages.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css?v=4">
+</head>
+<body>
+<main>
+  <header>
+    <a class="mark" href="/linkguard/"><img src="/favicon.svg" alt="" width="32" height="32">LinkGuard</a>
+    <nav aria-label="LinkGuard">
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="/linkguard/privacy">Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Check every link before it opens.</h1>
+  <p class="lede">LinkGuard checks the links you tap in WhatsApp, Telegram or SMS and warns you before a scam website opens.</p>
+  <div class="actions">
+    <a class="button primary" href="https://github.com/dwarpallabs/linkguard/releases/tag/v0.3.1">Download LinkGuard 0.3.1</a>
+  </div>
+  <p class="muted">Free · Android 8 and up · Pre-release, not on Google Play yet</p>
+  <picture class="screen">
+    <source srcset="/images/warning-screen.avif" type="image/avif">
+    <img src="/images/warning-screen.png" width="720" height="760" alt="LinkGuard’s warning screen: “This link may be a scam”, the website sbi-rewards-redeem.xyz, why it is fake, and the buttons Go back and Open anyway.">
+  </picture>
+
+  <section class="section" id="how">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="rotate(-45 12 12)"><path d="M5 9h5a3 3 0 0 1 0 6H5a3 3 0 0 1 0-6zM14 9h5a3 3 0 0 1 0 6h-5a3 3 0 0 1 0-6z"/></g></svg>
+        <div><h3>You tap a link</h3><p>In WhatsApp, Telegram or SMS, the way you always do.</p></div>
+      </li>
+      <li>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6.2c0 5.1-3.5 9-8 10.8-4.5-1.8-8-5.7-8-10.8V5zM8.5 12l2.5 2.5 4.5-5"/></svg>
+        <div><h3>LinkGuard checks it</h3><p>In a split second, against the tricks scammers use and a daily-updated list of known scam websites.</p></div>
+      </li>
+      <li>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 1 0 18a9 9 0 1 1 0-18zM12 3a4 9 0 1 1 0 18a4 9 0 1 1 0-18zM3 12h18"/></svg>
+        <div><h3>Safe links open straight away</h3><p>In your own browser, so you only ever see LinkGuard when a link looks like a scam.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>What it warns about</h2>
+    <p>LinkGuard looks for fake bank and brand websites, app downloads from outside the Play Store, UPI payment requests, brand-new websites, unusual web addresses and known scam websites. You always decide: every warning has an “Open anyway” button.</p>
+    <ul class="states">
+      <li>
+        <svg class="badge danger" viewBox="0 0 56 56" aria-hidden="true"><rect class="tile" width="56" height="56" rx="16"/><polygon class="shape" points="42.78,34.12 34.12,42.78 21.88,42.78 13.22,34.12 13.22,21.88 21.88,13.22 34.12,13.22 42.78,21.88"/><path class="cut" d="M23.2 23.2l9.6 9.6M32.8 23.2l-9.6 9.6"/></svg>
+        <div><h3 class="danger">This link may be a scam</h3><p>For links that are very likely scams, such as a website pretending to be your bank.</p></div>
+      </li>
+      <li>
+        <svg class="badge caution" viewBox="0 0 56 56" aria-hidden="true"><rect class="tile" width="56" height="56" rx="16"/><polygon class="shape" points="28,14.6 42.4,40.8 13.6,40.8"/><path class="cut" d="M28 24.2v7"/><circle class="dot" cx="28" cy="36.3" r="1.9"/></svg>
+        <div><h3 class="caution">Be careful with this link</h3><p>For links that look unusual, or that other LinkGuard users have reported as a scam this week.</p></div>
+      </li>
+      <li>
+        <svg class="badge safe" viewBox="0 0 56 56" aria-hidden="true"><rect class="tile" width="56" height="56" rx="16"/><circle class="shape" cx="28" cy="28" r="16"/><path class="cut" d="M21 28.6l5.1 4.8 9.3-9.6"/></svg>
+        <div><h3 class="safe">Safe links: nothing at all</h3><p>The link just opens in your browser, with no pop-up and no delay you would notice.</p></div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Privacy in plain words</h2>
+    <p>LinkGuard never saves or sends the links you open. No account needed. It uses the internet only for these checks:</p>
+    <ul class="facts">
+      <li><strong>Short links.</strong> Asks services like bit.ly where a short link really goes.</li>
+      <li><strong>Brand-new websites.</strong> Asks the official registry when the website was created. Only the website name is sent, never the full link.</li>
+      <li><strong>Known scam websites.</strong> Sends only a short scrambled code made from the website name. Many websites share each code, so no one can tell which website you opened.</li>
+      <li><strong>Reports.</strong> Only when you tap Send report. Your report can’t be traced back to you.</li>
+    </ul>
+    <p><a href="/linkguard/privacy">Read the full privacy policy</a></p>
+  </section>
+
+  <section class="section">
+    <h2>Your language</h2>
+    <p>LinkGuard follows your phone’s language. Its warnings and settings come in English and all 22 official languages of India:</p>
+    <ul class="langs">
+      <li><span lang="en">English</span></li>
+      <li><span lang="as">অসমীয়া</span> <span class="muted">Assamese</span></li>
+      <li><span lang="bn">বাংলা</span> <span class="muted">Bengali</span></li>
+      <li><span lang="brx">बड़ो</span> <span class="muted">Bodo</span></li>
+      <li><span lang="doi">डोगरी</span> <span class="muted">Dogri</span></li>
+      <li><span lang="gu">ગુજરાતી</span> <span class="muted">Gujarati</span></li>
+      <li><span lang="hi">हिन्दी</span> <span class="muted">Hindi</span></li>
+      <li><span lang="kn">ಕನ್ನಡ</span> <span class="muted">Kannada</span></li>
+      <li><span lang="ks" dir="rtl">کٲشُر</span> <span class="muted">Kashmiri</span></li>
+      <li><span lang="kok">कोंकणी</span> <span class="muted">Konkani</span></li>
+      <li><span lang="mai">मैथिली</span> <span class="muted">Maithili</span></li>
+      <li><span lang="ml">മലയാളം</span> <span class="muted">Malayalam</span></li>
+      <li><span lang="mni">ꯃꯩꯇꯩꯂꯣꯟ</span> <span class="muted">Manipuri</span></li>
+      <li><span lang="mr">मराठी</span> <span class="muted">Marathi</span></li>
+      <li><span lang="ne">नेपाली</span> <span class="muted">Nepali</span></li>
+      <li><span lang="or">ଓଡ଼ିଆ</span> <span class="muted">Odia</span></li>
+      <li><span lang="pa">ਪੰਜਾਬੀ</span> <span class="muted">Punjabi</span></li>
+      <li><span lang="sa">संस्कृतम्</span> <span class="muted">Sanskrit</span></li>
+      <li><span lang="sat">ᱥᱟᱱᱛᱟᱲᱤ</span> <span class="muted">Santali</span></li>
+      <li><span lang="sd" dir="rtl">سنڌي</span> <span class="muted">Sindhi</span></li>
+      <li><span lang="ta">தமிழ்</span> <span class="muted">Tamil</span></li>
+      <li><span lang="te">తెలుగు</span> <span class="muted">Telugu</span></li>
+      <li><span lang="ur" dir="rtl">اردو</span> <span class="muted">Urdu</span></li>
+    </ul>
+    <p class="muted">Every language except English is machine-translated, so some words may be off. Spotted a mistake? Tell us in the app (Settings → Wrong translation? Tell us), by <!--email_off--><a href="mailto:support@dwarpallabs.com">email</a><!--/email_off-->, or on <a href="https://github.com/dwarpallabs/linkguard/issues/new?template=translation.yml">GitHub</a>.</p>
+  </section>
+
+  <footer>
+    <ul>
+      <li>LinkGuard · by <a href="/">Dwarpal Labs</a></li>
+      <li><a href="/linkguard/privacy">Privacy</a></li>
+      <li><a href="https://github.com/dwarpallabs/linkguard/blob/main/LICENSE">Licence: Apache-2.0</a></li>
+      <li><a href="https://github.com/dwarpallabs/linkguard">Source code</a></li>
+      <li><!--email_off--><a href="mailto:support@dwarpallabs.com">support@dwarpallabs.com</a><!--/email_off--></li>
+    </ul>
+  </footer>
+</main>
+</body>
+</html>
