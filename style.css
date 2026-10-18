@@ -14,8 +14,8 @@
   font-display: swap;
 }
 
-/* Dwarpal Labs design system (linkguard/docs/design-system.md): one brand colour, one ink, three
-   status colours; system fonts with Noto first; same type scale as the app (sp → px). */
+/* Same tokens as the LinkGuard app: one brand colour, one ink, three status colours; system fonts
+   with Noto first; same type scale as the app (sp → px). */
 :root {
   --brand: #1e3a8a;
   --on-brand: #ffffff;
