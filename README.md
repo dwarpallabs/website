@@ -2,7 +2,7 @@
 
 Static site for Dwarpal Labs, deployed by Cloudflare Pages on every push to `main`. Plain HTML and CSS, no build step, no JavaScript, no analytics.
 
-Looks and wording follow the shared design system in [`linkguard/docs/design-system.md`](https://github.com/dwarpallabs/linkguard/blob/main/docs/design-system.md): the same colours, type scale, spacing and words as the app. Change a token there first, then here.
+Looks and wording match the LinkGuard app: the same colours, type scale, spacing and words. Change them in the app and here together.
 
 - `index.html` — home page
 - `linkguard/privacy.html` — LinkGuard privacy policy (linked from the Play Store listing)
