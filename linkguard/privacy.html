@@ -26,7 +26,7 @@
   <header><a class="mark" href="/"><img src="/favicon.svg" alt="" width="32" height="32">Dwarpal Labs</a></header>
 
   <h1>LinkGuard Privacy Policy</h1>
-  <p class="muted">Effective with LinkGuard 0.2.0</p>
+  <p class="muted">Effective with LinkGuard 0.4.0</p>
 
   <p class="lede">Short version: LinkGuard does not log, store or send the links you open. It has no accounts, no ads, no analytics and no trackers.</p>
 
@@ -47,15 +47,34 @@
   <ul>
     <li><strong>Short links.</strong> For links such as bit.ly or t.co, LinkGuard asks the short-link service where the link leads, so it can check the real destination. That service would see the same request if you opened the link without LinkGuard.</li>
     <li><strong>Website age.</strong> To spot brand-new scam sites, LinkGuard may ask the official registry for a website&#39;s domain when it was registered. Only the domain name is sent, for example <code>example.com</code>, never the page address, and always over an encrypted connection. The answer is kept only until LinkGuard closes.</li>
-    <li><strong>Known scam websites.</strong> For a website that isn&#39;t on LinkGuard&#39;s list of known-safe sites, LinkGuard asks Dwarpal Labs&#39; server about it. It sends only the first 4 bytes of a scrambled fingerprint (SHA-256 hash) of the website&#39;s name, for example <code>3f9a1c2e</code>. Many different websites share each fingerprint, so we cannot tell which website you opened, and the server keeps no record of these requests. The answer can be &ldquo;known scam&rdquo;, or &ldquo;reported as a scam by N LinkGuard users this week&rdquo;.</li>
+    <li><strong>Known scam websites.</strong> For a website that isn&#39;t on LinkGuard&#39;s list of known-safe sites, LinkGuard asks Dwarpal Labs&#39; server about it. It sends only the first 4 bytes of a scrambled fingerprint (SHA-256 hash) of the website&#39;s name, for example <code>3f9a1c2e</code>. Many different websites share each fingerprint, so we cannot tell which website you opened, and the server keeps no record of these requests. The answer can be &ldquo;known scam&rdquo; (sometimes with the name of the bank or telecom fraud team that confirmed it), &ldquo;part of a group of scam websites&rdquo;, or &ldquo;reported as a scam by N LinkGuard users this week&rdquo;.</li>
     <li><strong>Safe-website list.</strong> About once a day, LinkGuard downloads Dwarpal Labs&#39; list of known-safe websites, as fingerprints signed by Dwarpal Labs. The request contains no information about you or your links.</li>
+    <li><strong>Check what this app can do.</strong> Only when you tap it on an app-download warning: LinkGuard downloads that app file from the link&#39;s website, reads what the app would ask permission to do, and deletes the file straight after. It never installs it. The website sees the download, as it would if you downloaded the file yourself.</li>
+    <li><strong>Look without opening.</strong> Only when you tap it on a warning: LinkGuard loads that one page in a locked view, with JavaScript, cookies, downloads and form sending switched off. The website sees the visit, as it would in a browser. Nothing from the view is kept after it closes.</li>
   </ul>
+  <p>Apart from asking short-link services where a link leads, LinkGuard never contacts a link&#39;s website by itself. The last two checks above run only when you tap them.</p>
 
   <h2>Settings</h2>
   <p>Your settings, such as which browser to open links in and which checks are turned on, are stored only on your phone. Uninstalling LinkGuard deletes them.</p>
+  <p>If your organisation (for example your employer or bank branch) manages your phone, it can set LinkGuard through its device-management system: websites to warn you about, websites to trust, and whether the checks must stay on. LinkGuard shows in Settings when this is the case. These settings stay on your phone and LinkGuard never sends them anywhere.</p>
+
+  <h2>What LinkGuard learns on your phone</h2>
+  <p>To make its warnings fit you, LinkGuard keeps two things on your phone, shown in <em>Settings → Learned on this phone</em>, where you can clear them:</p>
+  <ul>
+    <li><strong>Websites you said were fine.</strong> When you answer <em>No, it was fine</em>, that website no longer gets the mild warning. It is kept only as a scrambled fingerprint that cannot be turned back into the name.</li>
+    <li><strong>Your banks and apps.</strong> When you open a brand&#39;s real website (for example your bank&#39;s) a few times, a fake of that brand gets a stronger warning. LinkGuard keeps a scrambled fingerprint of the brand&#39;s name and a small count, never the website, the link or the time.</li>
+  </ul>
+  <p>Neither is backed up or sent anywhere.</p>
+
+  <h2>Other features</h2>
+  <ul>
+    <li><strong>Check with LinkGuard.</strong> When you share a message to LinkGuard, it finds the links in it and checks each one the same way as a tapped link. The message itself is not stored or sent.</li>
+    <li><strong>Links that came by SMS.</strong> To tell you a link came by SMS, LinkGuard asks Android which app opened the link and which app is your SMS app. It never reads your messages.</li>
+    <li><strong>Listen.</strong> Reading a warning aloud uses your phone&#39;s own offline voice. Nothing is sent.</li>
+  </ul>
 
   <h2>Reporting a link</h2>
-  <p>You can report a link in three places. From a warning screen (<em>Report this link</em>) or from the <em>Was that link a scam?</em> card, LinkGuard sends only the website&#39;s name (for example <code>example.com</code>, never the full link or your messages), the reasons it warned you, the app version and an anonymous code to Dwarpal Labs over an encrypted connection. If you type a link into <em>Settings → Report a link</em> and tap <em>Send report</em>, it sends that link and any note you wrote, together with the website&#39;s name and the same anonymous code. The code is different for every website, so your reports can&#39;t be linked together or traced back to you; it only lets us count each phone once per website. When several different people report the same website within a week, other LinkGuard users see a soft warning automatically. Reports are never published and are deleted after 30 days.</p>
+  <p>You can report a link in four places. From a warning screen or a <em>Check with LinkGuard</em> result (<em>Report this link</em>), or from the <em>Was that link a scam?</em> card, LinkGuard sends only the website&#39;s name (for example <code>example.com</code>, never the full link or your messages), the reasons it warned you, the app version and an anonymous code to Dwarpal Labs over an encrypted connection. If you type a link into <em>Settings → Report a link</em> and tap <em>Send report</em>, it sends that link and any note you wrote, together with the website&#39;s name and the same anonymous code. The code is different for every website, so your reports can&#39;t be linked together or traced back to you; it only lets us count each phone once per website. When several different people report the same website within a week, other LinkGuard users see a soft warning automatically. Reports are never published and are deleted after 30 days. Websites that Dwarpal Labs confirms as scams may be published in our open list of scam websites, without anything about who reported them.</p>
   <p>When you tap <em>Open anyway</em> on a warning, LinkGuard keeps the name of that one website (for example <code>example.com</code>, never the full link) on your phone, so it can ask you once whether it was a scam. It is never backed up or sent anywhere unless you tap <em>Yes, it was a scam</em>. It is deleted when you answer, or after 7 days. Websites you have already answered about are kept only as a scrambled fingerprint that cannot be turned back into the name.</p>
 
   <h2>Children</h2>
